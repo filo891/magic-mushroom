@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>The Magic Mushroom</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+   <link href="css/bootstrap-responsive.css" rel="stylesheet">
+   
+   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    
+    <style type="text/css">
+      body {
+        padding-top: 80px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+    </style>
+ </head>
+ <body>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+   function autorun()
+   {
+      m = $("#magic-m");
+      
+      m.mouseenter(function (el) {
+        var w = rnd(40, $(document).width()-80-m.width());
+        var h = rnd(40, $(document).height()-80-m.height());
+        
+        $(this).parent().animate({"top": h, "left": w});
+      });
+      
+      setTimeout(function() {
+        m.attr("title", "Hey!");
+        m.tooltip("show");
+        
+        setTimeout(function() {
+          m.tooltip("hide");
+          
+          setTimeout(function() {
+            m.attr("data-original-title", "I'm the Magick Mushroom");
+            m.tooltip("show");
+            
+            setTimeout(function() {
+              m.tooltip("hide");
+              
+              setTimeout(function() {
+                m.attr("data-original-title", "Move your cursor over me and catch me!");
+                m.tooltip("show");
+              }, 300);
+            }, 1000);
+          }, 300);
+        }, 800);
+      }, 300);
+   }
+   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+   else window.onload = autorun;
+   
+   function rnd (min, max) {
+     return Math.floor(Math.random() * max) + min;
+   }
+  </script>
+  
+  <div class="container">
+
+      <div style="width: 12em; position: absolute; top:20%; left: 10%">
+        <img id="magic-m" data-toggle="tooltip" data-placement="top" src="img/m.svg" style="width: 100%" />
+      </div>
+    </div> <!-- /container -->
+ </body>
+</html>
