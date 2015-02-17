@@ -32,13 +32,13 @@
       
       #main {
         overflow:auto;
-        padding-bottom:150px; /* this needs to be bigger than footer height*/
+        padding-bottom:20px; /* this needs to be bigger than footer height*/
       }
       
       .footer {
         position: relative;
-        margin-top: -150px; /* negative value of footer height */
-        height: 150px;
+        margin-top: -20px; /* negative value of footer height */
+        height: 20px;
         clear:both;
         padding-top:20px;
         padding-left: 40px;
@@ -58,7 +58,9 @@
       m.mouseenter(function (el) {
         var w = rnd(40, $(document).width()-80-m.width());
         var h = rnd(40, $(document).height()-80-m.height());
-        
+          
+        $(this).tooltip('disable');
+                                                       
         $(this).parent().animate({"top": h, "left": w});
       });
       
@@ -108,7 +110,7 @@
   </div>
 
   <?php
-      $db = mysql_connect('localhost:/var/run/mysql/mysql.sock', '-------', '----------');
+      $db = mysql_connect('localhost:/var/run/mysql/mysql.sock', '--------', '-----');
       if (!$db) die('connection error '.mysql_error());
       if (!mysql_select_db('xszabo04', $db)) die('database not available '.mysql_error());
       
