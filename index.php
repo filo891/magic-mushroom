@@ -72,7 +72,7 @@
           m.tooltip("hide");
           
           setTimeout(function() {
-            m.attr("data-original-title", "I'm the Magick Mushroom");
+            m.attr("data-original-title", "I'm the Magic Mushroom");
             m.tooltip("show");
             
             setTimeout(function() {
@@ -110,7 +110,7 @@
   </div>
 
   <?php
-      $db = mysql_connect('localhost:/var/run/mysql/mysql.sock', '--------', '-----');
+      $db = mysql_connect('localhost:/var/run/mysql/mysql.sock', '---------', '---------');
       if (!$db) die('connection error '.mysql_error());
       if (!mysql_select_db('xszabo04', $db)) die('database not available '.mysql_error());
       
